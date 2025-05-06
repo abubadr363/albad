@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>ابحث عن فيلمك</title>
+  <style>
+    body {
+      background: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input {
+      font-size: 18px;
+      padding: 10px;
+      width: 200px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>اكتب كود الفيلم:</h1>
+  <input type="number" id="filmCode" placeholder="مثال: 205">
+  <button onclick="goToFilm()">اذهب</button>
+
+  <script>
+    function goToFilm() {
+      const code = document.getElementById('filmCode').value.trim();
+      if (code !== "") {
+        window.location.href = code + '.html';
+      }
+    }
+  </script>
+</body>
+</html>
