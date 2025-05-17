@@ -111,6 +111,15 @@
     <button onclick="goToFilm()">شاهد الآن</button>
     <div class="footer">جميع الحقوق محفوظة © ALBAD Films 2024</div>
   </div>
-
+<script>
+  function goToFilm() {
+    const code = document.getElementById("filmCode").value.trim();
+    if (code) {
+      window.location.href = code + ".html";
+    } else {
+      alert("الرجاء إدخال كود الفيلم.");
+    }
+  }
+</script>
 </body>
 </html>
