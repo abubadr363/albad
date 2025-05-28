@@ -1,190 +1,20 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>بث مباشر</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      display: flex;
-      height: 100vh;
-      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-      color: #fff;
-    }
-    .sidebar {
-      width: 250px;
-      background: linear-gradient(180deg, #141e30, #243b55);
-      box-shadow: 2px 0 10px rgba(0,0,0,0.4);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 10;
-      align-items: center;
-    }
-    .sidebar h2 {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-      color: #00e0ff;
-      letter-spacing: 1px;
-    }
-    .channel {
-      cursor: pointer;
-      transition: 0.3s;
-      border-radius: 12px;
-      overflow: hidden;
-      width: 200px;
-    }
-    .channel img {
-      width: 190px;
-      height: 35px;
-      object-fit: contain;
-      border-radius: 150px;
-      border: 2px solid transparent;
-      transition: 0.3s;
-      display: block;
-      background-color: #000;
-    }
-    .channel:hover img {
-      transform: scale(1.05);
-      border-color: #00e0ff;
-      box-shadow: 0 0 15px rgba(0,224,255,0.4);
-    }
-    .content {
-      flex: 1;
-      position: relative;
-      background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .content iframe {
-      width: 95%;
-      height: 95%;
-      border-radius: 15px;
-      border: 3px solid #00e0ff;
-      box-shadow: 0 0 20px rgba(0, 224, 255, 0.3);
-      transition: 0.4s;
-    }
-
-    @media(max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-        padding: 10px;
-      }
-      .channel {
-        width: 120px;
-        min-width: 120px;
-      }
-      .channel img {
-        width: 120px;
-        height: 60px;
-      }
-      .content iframe {
-        width: 100%;
-        height: 85vh;
-        border-radius: 0;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مشغل HydraFlix</title>
 </head>
-<body>
+<body style="margin: 0; padding: 0; background-color: #000;">
+  <h2 style="color: white; text-align: center; padding: 20px;">مشاهدة الحلقة</h2>
 
-  <div class="sidebar">
-    <h2>اختر القناة</h2>
-    <div class="channel" onclick="loadChannel(1)">
-      <img src="https://shahid.mbc.net/mediaObject/65e74795-8592-4eaf-bf26-a6e07895d7b6?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 1">
-    </div>
-    <div class="channel" onclick="loadChannel(2)">
-      <img src="https://shahid.mbc.net/mediaObject/92495fb5-0096-4755-b9eb-be9825e4c589?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 2">
-    </div>
-    <div class="channel" onclick="loadChannel(3)">
-      <img src="https://shahid.mbc.net/mediaObject/cc9de62f-135a-44a9-900e-6116478dbeb7?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 3">
-    </div>
-    <div class="channel" onclick="loadChannel(4)">
-      <img src="https://shahid.mbc.net/mediaObject/6b0f06b2-58c0-4583-8787-7c5f0bb02eab?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 4">
-    </div>
-    <div class="channel" onclick="loadChannel(5)">
-      <img src="https://shahid.mbc.net/mediaObject/66b2ba8a-228a-4d7e-9532-64bae7fd03f3?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 5">
-    </div>
-    <div class="channel" onclick="loadChannel(6)">
-      <img src="https://shahid.mbc.net/mediaObject/c4851ef0-c8cc-4977-a17a-119041b99dd6?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 6">
-    </div>
-    <div class="channel" onclick="loadChannel(7)">
-      <img src="https://shahid.mbc.net/mediaObject/88a1bb48-5aab-48ab-a822-4dcc630165db?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 7">
-    </div>
-    <div class="channel" onclick="loadChannel(8)">
-      <img src="https://shahid.mbc.net/mediaObject/6980409a-6157-4ee7-a105-00f48ecd4bc5?height=auto&width=144&croppingPoint=&version=1&type=avif 1440w" alt="قناة 8">
-    </div>
-    <div class="channel" onclick="loadChannel(9)">
-      <img src="https://j.top4top.io/p_3435t0fk11.jpg" alt="قناة 9">
-    </div>
-    <div class="channel" onclick="loadChannel(10)">
-      <img src="https://k.top4top.io/p_34352jxsq2.jpg" alt="قناة 10">
-    </div>
-    <div class="channel" onclick="loadChannel(11)">
-      <img src="https://l.top4top.io/p_34350you83.jpg" alt="قناة 11">
-    </div>
-    <div class="channel" onclick="loadChannel(12)">
-      <img src="https://a.top4top.io/p_34356ljp04.png" alt="قناة 12">
-    </div>
-    <div class="channel" onclick="loadChannel(13)">
-      <img src="https://d.top4top.io/p_3435oq5k71.png" alt="قناة 13">
-    </div>
-    <div class="channel" onclick="loadChannel(14)">
-      <img src="https://e.top4top.io/p_3435xo2rn2.png" alt="قناة 14">
-    </div>
-    <div class="channel" onclick="loadChannel(15)">
-      <img src="https://f.top4top.io/p_3435zes3i3.png" alt="قناة 15">
-    </div>
-    <div class="channel" onclick="loadChannel(16)">
-      <img src="https://a.top4top.io/p_34357dqaa1.png" alt="قناة 16">
-    </div>
-    <div class="channel" onclick="loadChannel(17)">
-      <img src="https://h.top4top.io/p_3435s4fb15.png" alt="قناة 17">
-    </div>
-  </div>
-
-  <div class="content" id="playerArea"></div>
-
-  <script>
-    const iframes = {
-      1: `<iframe class="video responsive" src="www.hydraflix.vip/?player_tv=4349&s=1&e=1&sv=embedru&tv=true" allowfullscreen></iframe>`,
-      2: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-615.php" allowfullscreen></iframe>`,
-      3: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-616.php" allowfullscreen></iframe>`,
-      4: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-617.php" allowfullscreen></iframe>`,
-      5: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-618.php" allowfullscreen></iframe>`,
-      6: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-619.php" allowfullscreen></iframe>`,
-      7: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-620.php" allowfullscreen></iframe>`,
-      8: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-621.php" allowfullscreen></iframe>`,
-      9: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-91.php" allowfullscreen></iframe>`,
-      10: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-92.php" allowfullscreen></iframe>`,
-      11: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-93.php" allowfullscreen></iframe>`,
-      12: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-94.php" allowfullscreen></iframe>`,
-      13: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-95.php" allowfullscreen></iframe>`,
-      14: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-96.php" allowfullscreen></iframe>`,
-      15: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-97.php" allowfullscreen></iframe>`,
-      16: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-98.php" allowfullscreen></iframe>`,
-      17: `<iframe class="video responsive" src="https://thedaddy.to/embed/stream-99.php" allowfullscreen></iframe>`,
-    };
-
-    function loadChannel(num) {
-      document.getElementById("playerArea").innerHTML = iframes[num];
-    }
-
-    window.onload = () => loadChannel(1);
-  </script>
-
+  <iframe
+    src="https://www.hydraflix.vip/getPlayTV.php?id=100088&s=1&e=1&sv=embedru&playtv=true"
+    width="100%"
+    height="600"
+    allowfullscreen
+    frameborder="0"
+    style="display: block; margin: 0 auto;"
+  ></iframe>
 </body>
 </html>
