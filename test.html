@@ -3,15 +3,43 @@
 <head>
   <title>مشاهدة بدون إعلانات</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+    }
+
+    .video-frame {
+      width: 100vw;
+      height: 80vh; /* يخلي مساحة لأسفل الصفحة */
+      border: none;
+      display: block;
+    }
+
+    .footer {
+      height: 20vh;
+      background-color: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
-<body style="margin:0; padding:0;">
+<body>
+
   <iframe 
-    src="https://vidora.su/movie/1233413" 
-    width="100%" 
-    height="100%" 
-    frameborder="0" 
-    allowfullscreen
-    style="position:fixed; top:0; left:0; width:100vw; height:100vh;">
+    class="video-frame"
+    src="https://vidora.su/movie/1233413"
+    allowfullscreen>
   </iframe>
+
+  <div class="footer">
+    👇 هذا الشريط السفلي شغال – أضف أي عناصر هنا (زر رجوع، روابط، شعار...)
+  </div>
+
 </body>
 </html>
