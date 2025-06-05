@@ -1,42 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <title>مشاهدة بدون إعلانات</title>
   <meta charset="UTF-8">
+  <title>مشاهدة الفيديو</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
+    * {
+      box-sizing: border-box;
     }
 
-    #videoFrame {
-      width: 50%;
-      height: 0vh;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 ratio */
+      background-color: #111;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
-      display: block;
+    }
+
+    .button-bar {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+    }
+
+    .button-bar button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <iframe 
-    id="videoFrame"
-    src="https://player.videasy.net/movie/1233413"
-    allowfullscreen>
-  </iframe>
+  <div class="video-container">
+    <iframe 
+      src="https://vidora.su/movie/1233413"
+      allowfullscreen
+      allow="fullscreen; encrypted-media">
+    </iframe>
+  </div>
 
-  <script>
-    function adjustHeight() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-      document.getElementById('videoFrame').style.height = `calc(var(--vh, 1vh) * 50)`;
-    }
-
-    window.addEventListener('load', adjustHeight);
-    window.addEventListener('resize', adjustHeight);
-  </script>
+  <div class="button-bar">
+    <button onclick="window.open('https://vidora.su/movie/1233413', '_blank')">فتح في صفحة جديدة</button>
+  </div>
 
 </body>
 </html>
