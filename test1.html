@@ -2,10 +2,11 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>مشاهدة الفيديو بدون إعلانات</title>
+  <title>ALBAD - مشاهدة الفيلم</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
+  * {
       box-sizing: border-box;
     }
 
@@ -43,17 +44,166 @@
       display: none !important;
       visibility: hidden !important;
     }
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background: url('https://raw.githubusercontent.com/abubadr363/albad/refs/heads/main/1f3cdf2a-0f26-490a-b7f5-519e2cc26e83.png') no-repeat center center fixed;
+      background-size: 90%;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(8px);
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .logo {
+      color: white;
+      font-size: 60px;
+      font-weight: bold;
+      text-shadow: 0 0 10px red, 0 0 20px red;
+      animation: glow-red 1s ease-in-out infinite alternate;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+      text-shadow: 0 0 10px black, 0 0 20px black;
+      animation: glow-black 1s ease-in-out infinite alternate;
+      margin-bottom: 20px;
+    }
+
+    @keyframes glow-red {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px red; }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px red; }
+    }
+
+    @keyframes glow-black {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px black; }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px black; }
+    }
+
+    .poster {
+      width: 250px;
+      height: 370px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    .watch-button {
+      padding: 15px 35px;
+      font-size: 30px;
+      color: white;
+      background-color: red;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+      transition: transform 0.2s ease;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .watch-button:hover {
+      transform: scale(1.05);
+    }
+
+    .description-box, .description-b0x {
+      width: 80%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+    }
+
+    /* المودال */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      height: 500px;
+      background-color: black;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
   </style>
 </head>
 <body>
+  <div class="logo">ALBAD</div>
+  <div class="subtitle">Sinners 2025</div>
 
-  <div class="video-container">
+  <img src="https://web3.topcinema.fun/wp-content/uploads/2025/05/MV5BNjIwZWY4ZDEtMmIxZS00NDA4LTg4ZGMtMzUwZTYyNzgxMzk5XkEyXkFqcGc@.jpg_V1_SX700-439x650.jpg" alt="Movie Poster" class="poster">
+
+  <div class="description-box">
+    <p>يعود شقيقين توأم إلى مسقط رأسهما في محاولة للابتعاد عن الماضي المظلم وبدء حياة جديدة، ولكن يقع الثنائي في سلسلة من الأحداث المرعبة التي تضع حياتهما على المحك.</p>
+  </div>
+
+  <button class="watch-button" onclick="openModal()">🎬 مشاهدة الفيلم</button>
+
+  <div class="description-b0x">
+    <p>المشغل يدعم المتابعة من حيث توقفت</p>
+  </div>
+
+  <!-- المودال -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
     <iframe 
       src="https://vidlink.pro/movie/tt31193180"
       allowfullscreen
       allow="fullscreen; encrypted-media">
     </iframe>
+    </div>
   </div>
 
+  <script>
+    function openModal() {
+      document.getElementById("videoModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("videoModal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
