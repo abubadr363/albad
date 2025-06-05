@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
   <title>ALBAD - مشاهدة الفيلم</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -15,15 +14,16 @@
       height: 100vh;
       flex-direction: column;
       background: url('https://raw.githubusercontent.com/abubadr363/albad/refs/heads/main/1f3cdf2a-0f26-490a-b7f5-519e2cc26e83.png') no-repeat center center fixed;
-      background-size: 90%; /* ← عدّل هذه النسبة لتكبير أو تصغير الخلفية */
-      backdrop-filter: blur(5px); /* ← هنا تتحكم بنسبة التمويه (blur) */
+      background-size: 90%;
+      backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(8px);
+      font-family: 'Tajawal', sans-serif;
     }
 
     .logo {
       color: white;
       font-size: 60px;
-      font-family: 'Tajawal', sans-serif; font-weight: bold;
+      font-weight: bold;
       text-shadow: 0 0 10px red, 0 0 20px red;
       animation: glow-red 1s ease-in-out infinite alternate;
       margin-bottom: 10px;
@@ -32,28 +32,20 @@
     .subtitle {
       color: white;
       font-size: 32px;
-      font-family: 'Tajawal Black', sans-serif;
+      font-weight: 700;
       text-shadow: 0 0 10px black, 0 0 20px black;
       animation: glow-black 1s ease-in-out infinite alternate;
       margin-bottom: 20px;
     }
 
     @keyframes glow-red {
-      from {
-        text-shadow: 0 0 5px #fff, 0 0 10px red, 0 0 15px red;
-      }
-      to {
-        text-shadow: 0 0 10px #fff, 0 0 20px red, 0 0 30px red;
-      }
+      from { text-shadow: 0 0 5px #fff, 0 0 10px red; }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px red; }
     }
 
     @keyframes glow-black {
-      from {
-        text-shadow: 0 0 5px #fff, 0 0 10px black, 0 0 15px black;
-      }
-      to {
-        text-shadow: 0 0 10px #fff, 0 0 20px black, 0 0 30px black;
-      }
+      from { text-shadow: 0 0 5px #fff, 0 0 10px black; }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px black; }
     }
 
     .poster {
@@ -73,58 +65,103 @@
       border: none;
       border-radius: 10px;
       text-decoration: none;
-      font-family: 'Tajawal Black', sans-serif;
+      font-weight: bold;
       box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
       transition: transform 0.2s ease;
       margin-bottom: 20px;
+      cursor: pointer;
     }
 
     .watch-button:hover {
       transform: scale(1.05);
     }
 
-    .description-box {
+    .description-box, .description-b0x {
       width: 80%;
       max-width: 600px;
       background-color: rgba(0, 0, 0, 0.9);
       color: white;
-      font-family: 'Tajawal', sans-serif;
       font-size: 18px;
       padding: 20px;
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
     }
-	.description-b0x {
-      width: 80%;
-      max-width: 600px;
-      background-color: rgba(0, 0, 0, 0.9);
-      color: white;
-      font-family: 'Tajawal', sans-serif;
-      font-size: 30px;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    
-  </style>
 
+    /* المودال */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      height: 500px;
+      background-color: black;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  </style>
 </head>
 <body>
   <div class="logo">ALBAD</div>
-  <div class="subtitle">A Minecraft Movie 2025</div>
+  <div class="subtitle">Sinners 2025</div>
 
-  <img src="https://web3.topcinema.fun/wp-content/uploads/2025/04/MV5BYzFjMzNjOTktNDBlNy00YWZhLWExYTctZDcxNDA4OWVhOTJjXkEyXkFqcGc@.jpg_V1_SX700-439x650.jpg" alt="Movie Poster" class="poster">
+  <img src="https://web3.topcinema.fun/wp-content/uploads/2025/05/MV5BNjIwZWY4ZDEtMmIxZS00NDA4LTg4ZGMtMzUwZTYyNzgxMzk5XkEyXkFqcGc@.jpg_V1_SX700-439x650.jpg" alt="Movie Poster" class="poster">
 
-  <div class="description-box box-1" style="margin-bottom: 20px;">
-    <p>ينطلق التنين الشرير (إيندر) في طريقه لتدمير كل شيء، فيدفع الأمر فتاة صغيرة وفريقها من المغامرين للتعاون معًا في سبيل إنقاذ العالم من الدمار المحتمل.</p>
+  <div class="description-box">
+    <p>يعود شقيقين توأم إلى مسقط رأسهما في محاولة للابتعاد عن الماضي المظلم وبدء حياة جديدة، ولكن يقع الثنائي في سلسلة من الأحداث المرعبة التي تضع حياتهما على المحك.</p>
   </div>
 
-  <a href="https://player.autoembed.cc/embed/movie/950387" target="_blank" class="watch-button">🎬 مشاهدة الفيلم</a>
+  <button class="watch-button" onclick="openModal()">🎬 مشاهدة الفيلم</button>
 
-  <div class="description-b0x" style="margin-bottom: 20px;">
+  <div class="description-b0x">
     <p>المشغل يدعم المتابعة من حيث توقفت</p>
   </div>
+
+  <!-- المودال -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <iframe src="https://mixdrop.ps/e/el1qelwgfgd9z9" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("videoModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("videoModal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
