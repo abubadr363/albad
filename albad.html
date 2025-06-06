@@ -2,38 +2,43 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>مشاهدة الفيديو</title>
+  <title>مشغل M3U8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <style>
     body {
+      margin: 0;
       background-color: #000;
-      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: sans-serif;
     }
 
-    .watch-button {
-      background-color: #e50914;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 20px;
+    video {
+      width: 90%;
+      max-width: 900px;
+      border: 3px solid #e50914;
       border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .watch-button:hover {
-      background-color: #b00710;
     }
   </style>
 </head>
 <body>
-  <button class="watch-button" onclick="window.open('https://web29.faselhd1watch.one/video_player?uid=0&vid=897ff9c86964933efd534bf550b1c0fe&img=https://img.scdns.io/thumb/897ff9c86964933efd534bf550b1c0fe/large.jpg', '_blank')">
-    ▶️ مشاهدة الفيديو
-  </button>
+  <video id="video" controls autoplay></video>
+
+  <script>
+    const video = document.getElementById('video');
+    const videoSrc = 'https://r475--1u80qqn0.c.scdns.io/stream/v1/hls/UZe_yaJ8s0hkT0wDfYyKng/1749241711/all/all/94.98.204.214/no/SA/218067/01-01/4/897ff9c86964933efd534bf550b1c0fe/145_sd480b_playlist.m3u8'; // ← غيّر هذا برابط m3u8 الحقيقي
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+    } else {
+      alert('متصفحك لا يدعم تشغيل هذا الفيديو');
+    }
+  </script>
 </body>
 </html>
