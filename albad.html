@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مشاهدة الفيديو بدون إعلانات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #111;
+      overflow: hidden;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 80%;
+      border: none;
+    }
+
+    /* فلترة مبدئية للعناصر الإعلانية لو كانت مسموح الوصول إليها */
+    iframe::-webkit-scrollbar,
+    iframe [id^="ad"],
+    iframe [class*="ads"],
+    iframe [class*="banner"],
+    iframe [class*="popup"],
+    iframe [class*="overlay"] {
+      display: none !important;
+      visibility: hidden !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <iframe 
+      src="https://vidlink.pro/movie/tt31193180"
+      allowfullscreen
+      allow="fullscreen; encrypted-media">
+    </iframe>
+  </div>
+
+</body>
+</html>
