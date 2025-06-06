@@ -2,58 +2,43 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>مشاهدة الفيديو بدون إعلانات</title>
+  <title>مشغل الفيديو الآمن</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      padding: 0;
-      font-family: sans-serif;
       background-color: #000;
-      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .video-container {
+    .iframe-container {
       position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background-color: #111;
-      overflow: hidden;
+      width: 90%;
+      max-width: 900px;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
     }
 
     iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%;
-      height: 80%;
+      height: 100%;
       border: none;
-    }
-
-    /* فلترة مبدئية للعناصر الإعلانية لو كانت مسموح الوصول إليها */
-    iframe::-webkit-scrollbar,
-    iframe [id^="ad"],
-    iframe [class*="ads"],
-    iframe [class*="banner"],
-    iframe [class*="popup"],
-    iframe [class*="overlay"] {
-      display: none !important;
-      visibility: hidden !important;
+      background-color: #000;
     }
   </style>
 </head>
 <body>
-
-  <div class="video-container">
+  <div class="iframe-container">
     <iframe 
-      src="https://web29.faselhd1watch.one/video_player?uid=0&vid=897ff9c86964933efd534bf550b1c0fe&img=https://img.scdns.io/thumb/897ff9c86964933efd534bf550b1c0fe/large.jpg"
-      allowfullscreen
-      allow="fullscreen; encrypted-media">
+      src="https://web29.faselhd1watch.one/video_player?uid=0&vid=897ff9c86964933efd534bf550b1c0fe&img=https://img.scdns.io/thumb/897ff9c86964933efd534bf550b1c0fe/large.jpg" 
+      sandbox="allow-same-origin allow-scripts allow-presentation"
+      allowfullscreen>
     </iframe>
   </div>
-
 </body>
 </html>
