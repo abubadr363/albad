@@ -6,60 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
-  * {
+    * {
       box-sizing: border-box;
     }
 
     body {
+	
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background-color: #111;
-      overflow: hidden;
-    }
-
-    iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 80%;
-      border: none;
-    }
-
-    /* فلترة مبدئية للعناصر الإعلانية لو كانت مسموح الوصول إليها */
-    iframe::-webkit-scrollbar,
-    iframe [id^="ad"],
-    iframe [class*="ads"],
-    iframe [class*="banner"],
-    iframe [class*="popup"],
-    iframe [class*="overlay"] {
-      display: none !important;
-      visibility: hidden !important;
-    }
-    body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
+      font-family: 'Tajawal', sans-serif;
       background: url('https://raw.githubusercontent.com/abubadr363/albad/refs/heads/main/1f3cdf2a-0f26-490a-b7f5-519e2cc26e83.png') no-repeat center center fixed;
       background-size: 90%;
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(8px);
-      font-family: 'Tajawal', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+	.video-wrapper {
+      width: 90%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
     }
 
     .logo {
-      color: white;
       font-size: 60px;
       font-weight: bold;
       text-shadow: 0 0 10px red, 0 0 20px red;
@@ -68,7 +44,6 @@
     }
 
     .subtitle {
-      color: white;
       font-size: 32px;
       font-weight: 700;
       text-shadow: 0 0 10px black, 0 0 20px black;
@@ -95,25 +70,6 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
     }
 
-    .watch-button {
-      padding: 15px 35px;
-      font-size: 30px;
-      color: white;
-      background-color: red;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-      transition: transform 0.2s ease;
-      margin-bottom: 20px;
-      cursor: pointer;
-    }
-
-    .watch-button:hover {
-      transform: scale(1.05);
-    }
-
     .description-box, .description-b0x {
       width: 80%;
       max-width: 600px;
@@ -126,45 +82,10 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       margin-bottom: 20px;
     }
-
-    /* المودال */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-      height: 500px;
-      background-color: black;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .modal-content iframe {
+	iframe {
       width: 100%;
       height: 100%;
       border: none;
-    }
-
-    .close-button {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
     }
   </style>
 </head>
@@ -177,30 +98,20 @@
   <div class="description-box">
     <p>يعود شقيقين توأم إلى مسقط رأسهما في محاولة للابتعاد عن الماضي المظلم وبدء حياة جديدة، ولكن يقع الثنائي في سلسلة من الأحداث المرعبة التي تضع حياتهما على المحك.</p>
   </div>
-
-  <button class="watch-button" onclick="openModal()">🎬 مشاهدة الفيلم</button>
+  <div class="video-wrapper">
+    <iframe src="https://ups2up.fun/embed-0e02ebdbjqux.html" allowfullscreen allow="encrypted-media"></iframe>
+  </div>
 
   <div class="description-b0x">
-    <p>المشغل يدعم المتابعة من حيث توقفت</p>
+    <p>سيتم عرض الفيلم قريبًا أو قد يكون هناك خلل بالمشغل.</p>
   </div>
-
-  <!-- المودال -->
-    <iframe 
-      src="https://ups2up.fun/embed-0e02ebdbjqux.html"
-      allowfullscreen
-      allow="fullscreen; encrypted-media">
-    </iframe>
-    </div>
-  </div>
-
   <script>
-    function openModal() {
-      document.getElementById("videoModal").style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("videoModal").style.display = "none";
-    }
+    // منع النوافذ المنبثقة
+    document.addEventListener('click', function () {
+      const prev = window.open;
+      window.open = function () {};
+      setTimeout(() => window.open = prev, 1000);
+    }, true);
   </script>
 </body>
 </html>
