@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>فيلم ALBAD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .video-wrapper {
+      width: 90%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-wrapper">
+    <iframe src="https://ups2up.fun/embed-0e02ebdbjqux.html" allowfullscreen allow="encrypted-media"></iframe>
+  </div>
+
+  <script>
+    // منع النوافذ المنبثقة
+    document.addEventListener('click', function () {
+      const prev = window.open;
+      window.open = function () {};
+      setTimeout(() => window.open = prev, 1000);
+    }, true);
+  </script>
+</body>
+</html>
