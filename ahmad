@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>مشغل فيديو MP4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    video {
+      width: 90%;
+      max-width: 800px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>مشاهدة الفيديو</h1>
+
+  <video controls>
+    <source src="https://varcdnx20xvx2-12.bom1bom.online:82/d/nnrxz2i4bgeyf3tkvypzbkknf2nvx646cz7bsrdi4dlqmx3fa7kilrdcrvjcw34fi6yd4np2/Sinners.2025.WeCima.ShoW.1080p.mp4" type="video/mp4">
+    متصفحك لا يدعم تشغيل الفيديو.
+  </video>
+
+</body>
+</html>
