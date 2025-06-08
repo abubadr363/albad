@@ -41,7 +41,7 @@
 
   <script>
     // حماية من النوافذ المنبثقة تعمل على الجوال والكمبيوتر
-    window.addEventListener('focusin', () => {
+    window.addEventListener('click', () => {
       const originalOpen = window.open;
       window.open = function () {
         console.log("تم حظر نافذة منبثقة");
