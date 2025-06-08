@@ -20,6 +20,7 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+      position: relative;
     }
     iframe {
       width: 100%;
@@ -30,16 +31,23 @@
 </head>
 <body>
   <div class="video-wrapper">
-    <iframe src="https://ups2up.fun/embed-0e02ebdbjqux.html" allowfullscreen allow="encrypted-media"></iframe>
+    <iframe 
+      src="https://ups2up.fun/embed-0e02ebdbjqux.html" 
+      allowfullscreen 
+      allow="encrypted-media"
+      title="مشغل فيلم ALBAD">
+    </iframe>
   </div>
 
   <script>
-    // منع النوافذ المنبثقة
-    document.addEventListener('click', function () {
-      const prev = window.open;
-      window.open = function () {};
-      setTimeout(() => window.open = prev, 1000);
-    }, true);
+    // حماية من النوافذ المنبثقة تعمل على الجوال والكمبيوتر
+    window.addEventListener('focusin', () => {
+      const originalOpen = window.open;
+      window.open = function () {
+        console.log("تم حظر نافذة منبثقة");
+      };
+      setTimeout(() => window.open = originalOpen, 1500);
+    });
   </script>
 </body>
 </html>
