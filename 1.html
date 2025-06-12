@@ -79,6 +79,24 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.7);
       margin-bottom: 20px;
     }
+    .video-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  overflow: hidden;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
@@ -91,10 +109,17 @@
     <p>يعود شقيقين توأم إلى مسقط رأسهما في محاولة للابتعاد عن الماضي المظلم وبدء حياة جديدة، ولكن يقع الثنائي في سلسلة من الأحداث المرعبة التي تضع حياتهما على المحك.</p>
   </div>
 
-  <iframe class="video-frame" sandbox="allow-scripts allow-same-origin" src="https://player.videasy.net/movie/1233413?color=e1216d"></iframe>
+  <!-- بدل السطر الحالي:
+<iframe class="video-frame" sandbox="allow-scripts allow-same-origin" src="..."></iframe>
+-->
 
-  <div class="description-b0x">
-    <p>المشغل يدعم المتابعة من حيث توقفت</p>
-  </div>
+<div class="video-wrapper">
+  <iframe 
+    class="responsive-iframe"
+    sandbox="allow-scripts allow-same-origin"
+    src="https://player.videasy.net/movie/1233413?color=e1216d"
+    allowfullscreen
+  ></iframe>
+</div>
 </body>
 </html>
